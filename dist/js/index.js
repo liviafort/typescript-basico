@@ -14,3 +14,10 @@ console.log(numeros.length);
 let tupla;
 tupla = [1, "oi", ["ola", "Oi"]];
 console.log(tupla);
+//objetos literais -> {prop: value}
+const usuario = {
+    nome: "Lívia",
+    idade: 20,
+};
+console.log(usuario);
+console.log(usuario.idade);

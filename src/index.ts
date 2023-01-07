@@ -4,12 +4,37 @@ const x: string = 'ola';
 let y: string[] = [];
 let isNumber: boolean = false;
 let numeros: number[] = [1, 2, 3, 4, 5]
+
 //verificar tipo
 console.log(typeof isNumber);
 console.log(typeof x);
+
 //verificar tamanho do array
 console.log(numeros.length);
+
 //tuplas
 let tupla: [number, string, string[]];
 tupla = [1, "oi", ["ola", "Oi"]];
 console.log(tupla);
+
+//objetos literais -> {prop: value}
+const usuario: {nome: string, idade: number} = {
+  nome: "Lívia",
+  idade: 20,
+}
+console.log(usuario);
+console.log(usuario.idade);
+
+//tipo any
+let possoMudarDoJeitoErrado: any = 0;
+possoMudarDoJeitoErrado = "ola"; // funciona
+
+//solução pro any ---> UNION TYPES
+let possoMudarDoJeitoCerto: string | number = 1;
+possoMudarDoJeitoCerto = "ola";
+
+//MELHOR FORMA DE MUDAR TIPOS!!!!!!!
+//type alias
+//você pode criar o seu próprio tipo
+type myType = string | number;
+let testandoTipo: myType = "ola";
