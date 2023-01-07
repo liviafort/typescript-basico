@@ -9,3 +9,7 @@ console.log(typeof isNumber);
 console.log(typeof x);
 //verificar tamanho do array
 console.log(numeros.length);
+//tuplas
+let tupla: [number, string, string[]];
+tupla = [1, "oi", ["ola", "Oi"]];
+console.log(tupla);
