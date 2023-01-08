@@ -130,3 +130,27 @@ const Livia = new Usuario("Lívia", 20, "livia2023");
 console.log(Livia.retorneMinhaIdade(Livia.idade));
 
 //interface em classes
+interface Iveiculo{
+  rodas: number,
+  portas: number | null;
+  showVeiculo() : void;
+}
+
+class Carro implements Iveiculo{
+  rodas;
+  portas;
+  capacidade;
+  
+  constructor(rodas: number, portas: number | null, capacidade: number){
+    this.rodas = rodas;
+    this.portas = portas;
+    this.capacidade = capacidade;
+  }
+
+  showVeiculo() : void{
+    return;
+  }
+}
+
+const meuCarro = new Carro(4, 2, 2);
+console.log(meuCarro);

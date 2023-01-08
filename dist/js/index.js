@@ -97,3 +97,15 @@ class Usuario {
 }
 const Livia = new Usuario("Lívia", 20, "livia2023");
 console.log(Livia.retorneMinhaIdade(Livia.idade));
+class Carro {
+    constructor(rodas, portas, capacidade) {
+        this.rodas = rodas;
+        this.portas = portas;
+        this.capacidade = capacidade;
+    }
+    showVeiculo() {
+        return;
+    }
+}
+const meuCarro = new Carro(4, 2, 2);
+console.log(meuCarro);
