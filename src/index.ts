@@ -38,3 +38,95 @@ possoMudarDoJeitoCerto = "ola";
 //você pode criar o seu próprio tipo
 type myType = string | number;
 let testandoTipo: myType = "ola";
+
+//OUTRA BOA FORMA!!!
+//enum
+//exemplo: quando voce quer enumerar algo por tamanho (pequeno, medio, grande)
+enum Size{
+  P = "pequeno",
+  M = "médio",
+  G = "grande",
+}
+
+const copo: {cor: string, tamanho: Size} = {
+  cor: "vermelho",
+  tamanho: Size.G,
+}
+console.log(copo);
+
+//literal types
+let teste: "algumvalor" | null;
+teste = "algumvalor";
+//teste = "oi" // isso da erro!!!
+teste = null;
+
+//funçoes
+function soma(a: number, b: number){
+  return a + b;
+}
+console.log(soma(3, 4));
+
+//tipar retorno da função
+function digaOla(nome: string) : string{
+  return `Olá ${nome}!`;
+}
+console.log(digaOla("Lívia"));
+
+//retorno tipo void ---> sem retorno
+function retorno() : void{
+  console.log("OI");
+}
+retorno();
+
+//parametro opcional
+function fraseParamsOp(nome: string, idade?:string) : void{
+  if(!idade){
+    console.log("Olá Lívia, você não nos disse sua idade");
+    return;
+  }
+    console.log(`Olá Lívia, você tem ${idade} anos`);
+}
+fraseParamsOp("Lívia");
+
+//interfaces
+interface mathProblems{
+  n1: number,
+  n2: number,
+}
+
+function somaAgain(nums: mathProblems) : number {
+  return nums.n1 + nums.n2;
+}
+
+console.log(somaAgain({n1:1, n2:4}));
+
+//generics
+function showArrayItems<T>(items: T[]){
+  items.forEach((item) =>{
+    console.log(item);
+  })
+}
+
+showArrayItems(["oi", "tudo", "bem"]);
+showArrayItems([1, 2, 3, 4, 5]);
+
+//classes
+class Usuario{
+  //atributos
+  nome;
+  idade;
+  senha;
+  //construtor
+  constructor(nome: string, idade: number, senha: string){
+    this.nome = nome;
+    this.idade = idade;
+    this.senha = senha;
+  }
+  //método qualquer
+  retorneMinhaIdade(a: number) : number { return a};
+}
+
+const Livia = new Usuario("Lívia", 20, "livia2023");
+console.log(Livia.retorneMinhaIdade(Livia.idade));
+
+//interface em classes
