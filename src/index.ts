@@ -151,6 +151,40 @@ class Carro implements Iveiculo{
     return;
   }
 }
-
 const meuCarro = new Carro(4, 2, 2);
 console.log(meuCarro);
+
+//herança
+class SuperCarro extends Carro{
+  engine;
+
+  constructor(rodas: number, portas: number | null, capacidade: number, engine: number){
+    super(rodas, portas, capacidade);
+    this.engine = engine;
+  }
+}
+const meuNovoCarro = new SuperCarro(4, 2, 2, 3);
+console.log(meuNovoCarro);
+
+//decorators
+function baseParametros(){
+  return function<T extends {new (...args: any[]): {}}>(constructor: T){
+    return class extends constructor{
+      id = Math.random();
+      date = new Date();
+    }
+  }
+}
+
+@baseParametros()
+class Pessoa{
+  nome;
+  idade;
+  constructor(nome: string, idade:number){
+    this.nome = nome;
+    this.idade = idade;
+  }
+}
+
+const livia = new Pessoa("livia", 20);
+console.log(livia);

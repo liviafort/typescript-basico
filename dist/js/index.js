@@ -1,4 +1,10 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 //como declarar variavel?
 const n = 2;
 const x = 'ola';
@@ -109,3 +115,35 @@ class Carro {
 }
 const meuCarro = new Carro(4, 2, 2);
 console.log(meuCarro);
+//herança
+class SuperCarro extends Carro {
+    constructor(rodas, portas, capacidade, engine) {
+        super(rodas, portas, capacidade);
+        this.engine = engine;
+    }
+}
+const meuNovoCarro = new SuperCarro(4, 2, 2, 3);
+console.log(meuNovoCarro);
+//decorators
+function baseParametros() {
+    return function (constructor) {
+        return class extends constructor {
+            constructor() {
+                super(...arguments);
+                this.id = Math.random();
+                this.date = new Date();
+            }
+        };
+    };
+}
+let Pessoa = class Pessoa {
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+};
+Pessoa = __decorate([
+    baseParametros()
+], Pessoa);
+const livia = new Pessoa("livia", 20);
+console.log(livia);
